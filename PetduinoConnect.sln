@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2013 for Windows Desktop
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandMessenger", "Src\CommandMessenger\CommandMessenger.csproj", "{D7390D58-827B-4E8F-8131-DE01C7BD36D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandMessenger.Transport.Serial", "Src\CommandMessenger.Transport.Serial\CommandMessenger.Transport.Serial.csproj", "{E47E9CA2-55A1-4474-ACB6-FA5712D40F29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DweetNet", "Src\DweetNet\DweetNet.csproj", "{063775EC-79F8-40B1-8641-3385068BE2FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetduinoConnect", "Src\PetduinoConnect\PetduinoConnect.csproj", "{190E3227-BA8E-4F01-9169-247C0BEE70E0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{5715E800-F0AA-488B-BBBA-84C0AC9BDE19}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D7390D58-827B-4E8F-8131-DE01C7BD36D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7390D58-827B-4E8F-8131-DE01C7BD36D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7390D58-827B-4E8F-8131-DE01C7BD36D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7390D58-827B-4E8F-8131-DE01C7BD36D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E47E9CA2-55A1-4474-ACB6-FA5712D40F29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E47E9CA2-55A1-4474-ACB6-FA5712D40F29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E47E9CA2-55A1-4474-ACB6-FA5712D40F29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E47E9CA2-55A1-4474-ACB6-FA5712D40F29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{063775EC-79F8-40B1-8641-3385068BE2FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{063775EC-79F8-40B1-8641-3385068BE2FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{063775EC-79F8-40B1-8641-3385068BE2FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{063775EC-79F8-40B1-8641-3385068BE2FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{190E3227-BA8E-4F01-9169-247C0BEE70E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{190E3227-BA8E-4F01-9169-247C0BEE70E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{190E3227-BA8E-4F01-9169-247C0BEE70E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{190E3227-BA8E-4F01-9169-247C0BEE70E0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
