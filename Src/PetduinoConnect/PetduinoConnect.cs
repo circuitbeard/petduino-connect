@@ -163,10 +163,7 @@ namespace PetduinoConnect
                     {
                         case EntityType.Action:
                             var action = dweet.Content.As<ActionEntity>();
-                            if (action.Params.ContainsKey("deviceId") && action.Params["deviceId"].ToString() == Config.Instance.Petduino.DeviceId)
-                            {
-                                HandleAction(action);
-                            }
+                            HandleAction(action);
                             break;
                     }
                 }
@@ -184,8 +181,8 @@ namespace PetduinoConnect
                 LogUtil.Info("[Action] Received action from dweet: " + action.Name.ToString());
                 LogUtil.Info("[Action] Sending action to Petduino: " + action.Name.ToString());
 
-                var cmd = action.Params.ContainsKey("value")
-                    ? new SendCommand((int)action.Name, action.Params["value"].ToString())
+                var cmd = !string.IsNullOrWhiteSpace(action.Value.ToString())
+                    ? new SendCommand((int)action.Name, action.Value)
                     : new SendCommand((int)action.Name);
 
                 _cmdMessenger.SendCommand(cmd);
@@ -216,18 +213,14 @@ namespace PetduinoConnect
                 // Create event entity
                 var entity = new EventEntity
                 {
-                    Name = evtType,
-                    Data = new Dictionary<string, object>
-                {
-                    { "deviceId", Config.Instance.Petduino.DeviceId }
-                }
+                    Name = evtType
                 };
 
                 // Check for a value
                 var value = arguments.ReadStringArg();
                 if (value != null)
                 {
-                    entity.Data.Add("value", value);
+                    entity.Value = value;
                 }
 
                 // Send dweet

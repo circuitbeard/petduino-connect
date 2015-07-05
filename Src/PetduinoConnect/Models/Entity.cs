@@ -11,6 +11,8 @@ namespace PetduinoConnect.Models
     public class Entity
     {
         [JsonConverter(typeof(StringEnumConverter))]
-        public EntityType Type { get; set; } 
+        public EntityType Type { get; set; }
+
+        public string Value { get; set; }
     }
 }

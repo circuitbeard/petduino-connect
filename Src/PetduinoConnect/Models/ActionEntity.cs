@@ -17,7 +17,5 @@ namespace PetduinoConnect.Models
 
         [JsonConverter(typeof(StringEnumConverter))]
         public ActionType Name { get; set; }
-
-        public IDictionary<string, object> Params { get; set; }
     }
 }

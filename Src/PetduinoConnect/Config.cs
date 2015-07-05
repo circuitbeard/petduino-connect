@@ -13,7 +13,6 @@ namespace PetduinoConnect
     {
         private static Config _instance;
 
-        public PetduinoConfig Petduino { get; private set; }
         public DweetConfig Dweet { get; private set; }
         public SerialConfig Serial { get; private set; }
         public GeneralConfig General { get; private set; }
@@ -24,10 +23,6 @@ namespace PetduinoConnect
 
             _instance = new Config
             {
-                Petduino = new PetduinoConfig
-                {
-                    DeviceId = cfg.Configs["Petduino"].Get("device_id")
-                },
                 Dweet = new DweetConfig
                 {
                     Thing = cfg.Configs["Dweet"].Get("dweet_thing")
@@ -55,11 +50,6 @@ namespace PetduinoConnect
     }
 
     #region ConfigModels
-
-    public class PetduinoConfig
-    {
-        public string DeviceId { get; internal set; }
-    }
 
     public class DweetConfig
     {

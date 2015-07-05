@@ -17,7 +17,5 @@ namespace PetduinoConnect.Models
 
         [JsonConverter(typeof(StringEnumConverter))]
         public EventType Name { get; set; }
-
-        public IDictionary<string, object> Data { get; set; }
     }
 }
