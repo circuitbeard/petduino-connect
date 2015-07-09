@@ -15,7 +15,7 @@ namespace PetduinoConnect.Models
             Type = EntityType.Action;
         }
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonProperty("name")]
         public ActionType Name { get; set; }
     }
 }

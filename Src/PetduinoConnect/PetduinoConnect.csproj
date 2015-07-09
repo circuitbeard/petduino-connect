@@ -55,12 +55,14 @@
     <Compile Include="Config.cs" />
     <Compile Include="Extensions\JsonExtensions.cs" />
     <Compile Include="Extensions\NiniExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Models\ActionEntity.cs" />
     <Compile Include="Models\ActionType.cs" />
     <Compile Include="Models\Entity.cs" />
     <Compile Include="Models\EntityType.cs" />
     <Compile Include="Models\EventEntity.cs" />
     <Compile Include="Models\EventType.cs" />
+    <Compile Include="Models\Payload.cs" />
     <Compile Include="Utils\ConsoleUtils.cs" />
     <Compile Include="PetduinoConnect.cs" />
     <Compile Include="Program.cs" />

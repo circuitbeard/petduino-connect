@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace PetduinoConnect
 {
@@ -43,12 +44,13 @@ namespace PetduinoConnect
             Console.WriteLine(@"                                                                           ");
 
             // Force enum serialization to be in camelcase
-            JsonConvert.DefaultSettings = (() =>
-            {
-                var settings = new JsonSerializerSettings();
-                settings.Converters.Add(new StringEnumConverter { CamelCaseText = true });
-                return settings;
-            });
+            JsonConvert.DefaultSettings = () => new JsonSerializerSettings { 
+                Converters = { 
+                    new StringEnumConverter { 
+                        CamelCaseText = true 
+                    } 
+                } 
+            };
 
             // Setup serial
             _serialTransport = new SerialTransport
@@ -156,13 +158,21 @@ namespace PetduinoConnect
         {
             if (isReady())
             {
-                var entity = dweet.Content.As<Entity>();
+                // The NodeRED dweetio node returns the dweet contents
+                // wrapped in a payload object so detect this and
+                // unwrap the value
+
+                var content = dweet.Content.IsPayloadObject()
+                    ? dweet.Content.As<PayloadEntity>().Payload
+                    : dweet.Content;
+
+                var entity = content.As<Entity>();
                 if (entity != null)
                 {
                     switch (entity.Type)
                     {
                         case EntityType.Action:
-                            var action = dweet.Content.As<ActionEntity>();
+                            var action = content.As<ActionEntity>();
                             HandleAction(action);
                             break;
                     }
