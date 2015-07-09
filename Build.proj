@@ -18,7 +18,7 @@
 	****************************************
   -->
   <PropertyGroup>
-	  <PackageVersion>1.0</PackageVersion>
+	  <PackageVersion>1.1</PackageVersion>
     <BuildConfiguration>Release</BuildConfiguration>
   </PropertyGroup>
 
@@ -70,6 +70,15 @@
 	  <Copy SourceFiles="@(BinFiles)" DestinationFolder="$(BuildDir)" />
   </Target>
 
-  <Target Name="Complete" DependsOnTargets="PrepairFiles"></Target>
+  <!-- PACKAGE -->
+  <Target Name="Package" DependsOnTargets="PrepairFiles">
+    <ItemGroup>
+      <ZipFiles Include="$(BuildDir)\**\*.*" />
+    </ItemGroup>
+    <Zip ZipFileName="$(BuildDir)\$(ProjectName)-$(PackageVersion).zip"
+      WorkingDirectory="$(BuildDir)\" Files="@(ZipFiles)" />
+  </Target>
+
+  <Target Name="Complete" DependsOnTargets="Package"></Target>
 
 </Project>
